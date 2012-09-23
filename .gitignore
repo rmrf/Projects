@@ -1,0 +1,10 @@
+*.pyc
+*.sw*
+*.log
+*~
+\#*\#
+logs/*
+.DS_Store
+*.pid
+*.wp*
+.ropeproject/

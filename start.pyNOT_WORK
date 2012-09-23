@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import os
+import sys
+from django.core.management import execute_from_command_line
+
+port = "8080"
+pwd = os.getcwd()
+SolO_PATH = pwd+"/SolO/"
+sys.path.append(pwd)
+
+cmd_ipaddr = "/usr/sbin/ifconfig -a |grep inet|grep -v 127.0.0.1|awk '{print $2}'"
+ipaddr = os.popen(cmd_ipaddr).read().strip("\n")
+
+os.environ.setdefault("PYTHONPATH", pwd)
+os.environ.setdefault("PATH", pwd)
+#os.environ["PYTHONPATH"].append(pwd)
+
+#cmd_run = ["django-admin.py", "runserver", ipaddr + ":" + port] 
+
+print cmd_run
+print
+
+os.chdir(SolO_PATH)
+print os.getcwd()
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SolO.SolO.settings")
+os.system("cd %s ;%s/django/bin/django-admin.py runserver" % (SolO_PATH, pwd))
+

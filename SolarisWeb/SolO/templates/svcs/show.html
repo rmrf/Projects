@@ -1,0 +1,20 @@
+{% load svcs_extras %}
+
+<h3 >The {{ smf_relation }} of Service  <font color=red> {{ smf_name }} </font> are: </h3> <br />
+
+<h3><a target=_self href=/>Back to home page</a></h3><br />
+{% ifnotequal smf_list "" %}
+
+    {% for smf in smf_dep  %}
+<span>Service Name: {{ dict_smf_status|key:smf }}     
+<a target="_self"  href=/smf?smf_name="{{smf}}"&relation="parent"><b>Servies Depends on it  </b> </a> 
+<font color=red size=4>{{ smf }} </font></h4>
+<a target="_self"  href=/smf?smf_name="{{smf}}"&relation="children"><b>  It Depends on which Services </b> </a> 
+
+</span><br />
+
+    {% endfor %}
+
+{% endifnotequal %}
+    <br />
+
