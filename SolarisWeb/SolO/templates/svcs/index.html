@@ -1,4 +1,7 @@
+{% extends "base.html" %}
+
 {% load svcs_extras %}
+{% block content %}
 
 <a name="A0" id="A0"></a> 
 {% for s,num in stat_num.items|sort %}
@@ -13,14 +16,24 @@
 
 {% for status, smf_list in dict_status_smf.items|sort %}
 
-<a name="{{ status }}" id="{{ status }}"> </a><a href="#A0"> Back to Top</a>  <br />
-    {% ifnotequal smf_list "" %}
+    <a name="{{ status }}" id="{{ status }}"> </a><a href="#A0"> Back to Top</a> 
 
-        {% for smf in smf_list  %}
-<span>Service Name: {{ status }}   <a target="_self"  href=/smf?smf_name="{{smf}}"&relation="children"><b>{{ smf }}</b> </a> </span><br />
-        {% endfor %}
+    <table class="table">
+            {% for smf in smf_list  %}
+    <tr>
+     <td>
+    Service Status :  <font  size=4>{{ status }} </font>
+    
+     </td> 
+     <td>
+    <a target="_self"  href=/svcs/smf?smf_name="{{smf}}"&relation="children">
+<font color=red size=4>{{ smf }} </font>
+    </a>
+     </td> 
+    </tr>
+            {% endfor %}
+    </table>
 
-    {% endifnotequal %}
-    <br />
 
 {% endfor %}
+{% endblock %}

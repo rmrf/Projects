@@ -2,8 +2,6 @@ import os
 import sys
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
-import urllib2
-from SolO.settings import  PROJECT_PATH
 
 
 # Solaris System command for get detail
