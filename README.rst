@@ -1,4 +1,9 @@
-**Run it**
+**Notice**
+
+ This is for Solaris11 and  opensolaris based Distribution
+ The OS before Solaris 10 supposed not supported
 
 
-cd Projects/SolarisWeb; start.sh
+**How to  Run it**
+
+ cd Projects/SolarisWeb;  ./start.sh
