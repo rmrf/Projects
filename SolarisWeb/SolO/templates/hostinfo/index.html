@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% load svcs_extras %}
+{% block content %}
+      <div>
+        <h1>
+          Your Solaris Box information
+        </h1>
+        <p>
+          <br>
+        </p>
+      </div>
+      <div class="span1">
+      </div>
+      <div class="row">
+        <div class="span4">
+        </div>
+        <div class="span4">
+        </div>
+        <div class="span4">
+        </div>
+      </div>
+
+
+<h3> General Information </h3>
+<table class="table">
+    <tr>
+        <td>
+            Hostname:
+        </td>
+        <td>
+          <font color=red size=4>  {{ hostname }} </font>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Gateway:
+        </td>
+        <td>
+         <font color=red size=4>   {{ gateway }} </font>
+        </td>
+    </tr>
+</table>
+
+
+<h3> Network Information </h3>
+
+<table class="table">
+    
+{% for entry in ipaddr_array %}
+    <tr>
+  {% for k,v in entry.items|sort %}
+        <td>
+            {{ k }} : <font color=red size=4> {{ v }} </font>
+        </td>
+  {% endfor %}
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock %}

@@ -16,9 +16,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'SolO.svcs.views.index' ),
+    url(r'^$', 'SolO.hostinfo.views.index' ),
     url(r'^svcs$', 'SolO.svcs.views.index' ),
-    #url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': PROJECT_PATH + '/static' }),
     url(r'^svcs/smf$', 'SolO.svcs.views.show' ),
 ) 
 

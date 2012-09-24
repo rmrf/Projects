@@ -7,11 +7,13 @@
 {% for s,num in stat_num.items|sort %}
 
     {% ifnotequal s "" %}
-<span>Service Name: <a href="#{{ s }}" > {{ s }} </a>: {{ num }}   </span><br />
+<h3> Service Status : <a href="#{{ s }}" > {{ s }} </a>: {{ num }} </h3>  
     {% endifnotequal %}
 
 {% endfor %}
 
+
+<br />
 <br />
 
 {% for status, smf_list in dict_status_smf.items|sort %}
